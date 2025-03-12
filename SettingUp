@@ -1,20 +1,25 @@
-touch subdomains.txt
+1) touch subdomains.txt
 
-nano subdomains.txt
+2) nano subdomains.txt
 (Enter subdomains --> save the file )
 
-python3 -m venv myenv
-source myenv/bin/activate
-pip install aiohttp
+Optional But recomended :
+-----------------------------
+3) python3 -m venv myenv
+4) source myenv/bin/activate
+----------------------------
 
 
-pip install aiohttp tqdm
+5) pip install aiohttp
 
 
-nano check_host.py
+6) pip install aiohttp tqdm
+
+
+7) nano check_host.py
 
 (paste the script here from repo check_host.py)
 
-chmod +x check_host.py
+8) chmod +x check_host.py
 
-./check_host.py
+9) ./check_host.py
