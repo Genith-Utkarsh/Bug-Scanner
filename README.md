@@ -55,52 +55,9 @@
     * Open `check_host.py` in `nano`.
     * Paste the following Python script (or the script from your repository):
 
-    ```python
-    import asyncio
-    import aiohttp
-    import ssl
-    import argparse
-    from tqdm.asyncio import tqdm
+    
 
-    async def check_host(hostname, working_file, nonworking_file, timeout=5):
-        sslcontext = ssl.create_default_context()
-        sslcontext.check_hostname = False
-        sslcontext.verify_mode = ssl.CERT_NONE
 
-        try:
-            async with aiohttp.ClientSession(timeout=aiohttp.ClientTimeout(total=timeout)) as session:
-                async with session.get(f"https://{hostname}", ssl=sslcontext, allow_redirects=False) as response:
-                    if response.status < 400:
-                        with open(working_file, "a") as f:
-                            f.write(f"{hostname}\n")
-                        return True
-                    else:
-                        with open(nonworking_file, "a") as f:
-                            f.write(f"{hostname}\n")
-                        return False
-
-        except Exception as e:
-            with open(nonworking_file, "a") as f:
-                f.write(f"{hostname}\n")
-            return False
-
-    async def main(subdomains_file, working_file, nonworking_file, timeout):
-        with open(subdomains_file, "r") as f:
-            subdomains = [line.strip() for line in f]
-
-        tasks = [check_host(subdomain, working_file, nonworking_file, timeout) for subdomain in subdomains]
-
-        await tqdm.gather(*tasks, desc="Checking Subdomains")
-
-    if __name__ == "__main__":
-        parser = argparse.ArgumentParser(description="Check subdomain health.")
-        parser.add_argument("subdomains_file", help="Path to the subdomains file.")
-        parser.add_argument("--working_file", default="working_sni.txt", help="Path to the working subdomains file.")
-        parser.add_argument("--nonworking_file", default="nonworking_sni.txt", help="Path to the nonworking subdomains file.")
-        parser.add_argument("--timeout", type=int, default=5, help="Timeout in seconds for each request.")
-        args = parser.parse_args()
-
-        asyncio.run(main(args.subdomains_file, args.working_file, args.nonworking_file, args.timeout))
 
     ```
     * Save the file (Ctrl + O, Enter, Ctrl + X).
