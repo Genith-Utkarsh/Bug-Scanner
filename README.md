@@ -25,12 +25,8 @@
     nano subdomains.txt
     ```
     * Open `subdomains.txt` with the `nano` text editor.
-    * Enter the subdomains you want to check, one per line. For example:
-        ```
-        [sub.example.com](https://www.google.com/search?q=sub.example.com)
-        [api.example.com](https://www.google.com/search?q=api.example.com)
-        [blog.example.com](https://www.google.com/search?q=blog.example.com)
-        ```
+   
+        
     * Save the file (Ctrl + O, Enter, Ctrl + X).
 
 3.  **Optional: Create a Virtual Environment (Recommended):**
@@ -53,7 +49,7 @@
     nano check_host.py
     ```
     * Open `check_host.py` in `nano`.
-    * Paste the following Python script (or the script from your repository):
+    * Paste the script from  repository --> check_host.py
 
     
 
@@ -70,14 +66,9 @@
 
 7.  **Run the Script:**
     ```bash
-    ./check_host.py subdomains.txt
+    ./check_host.py 
     ```
-    * This will execute the script, checking the subdomains listed in `subdomains.txt`.
-    * You can also specify different output files and timeout values:
-        ```bash
-        ./check_host.py subdomains.txt --working_file good.txt --nonworking_file bad.txt --timeout 10
-        ```
-    * The script will display a progress bar using `tqdm`.
+    
 
 8.  **View Results:**
     * The working subdomains will be saved in `working_sni.txt` (or the file you specified).
