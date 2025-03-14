@@ -1,4 +1,6 @@
-1) touch subdomains.txt
+1) touch subdomains.txt     
+   touch working_sni.txt
+   touch nonworking_sni.txt
 
 2) nano subdomains.txt
 (Enter subdomains --> save the file )
