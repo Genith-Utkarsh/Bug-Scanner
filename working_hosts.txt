@@ -1,0 +1,4 @@
+# Working hosts found on 2025-07-15 13:41:42
+# Format: URL [STATUS] [CDN] (SERVER) (TIME)
+# CDN Detection: DNS/CNAME + HTTP Headers (C++ Stable + curl)
+
